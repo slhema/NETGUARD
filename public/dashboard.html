@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NETGUARD | Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+<body>
+
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-icon">N</div>
+
+                <div>
+                    <h1>NETGUARD</h1>
+                    <p>Network Security</p>
+                </div>
+
+            </div>
+
+            <nav>
+
+                <a class="nav-item active">
+                    <span>◉</span>
+                    Dashboard
+                </a>
+
+                <a class="nav-item">
+                    <span>⌁</span>
+                    Network Activity
+                </a>
+
+                <a class="nav-item">
+                    <span>◈</span>
+                    Authorized Devices
+                </a>
+
+                <a class="nav-item">
+                    <span>!</span>
+                    Security Alerts
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="monitor-status">
+
+                    <span class="status-dot"></span>
+
+                    <div>
+                        <strong>Monitoring Active</strong>
+                        <small>System is protected</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <div>
+
+                    <p class="eyebrow">NETWORK SECURITY</p>
+
+                    <h2>Security Dashboard</h2>
+
+                    <p class="subtitle">
+                        Monitor communication and detect unusual network behavior.
+                    </p>
+
+                </div>
+
+                <div class="live-status">
+
+                    <span class="status-dot"></span>
+
+                    <span>LIVE MONITORING</span>
+
+                </div>
+
+            </header>
+
+
+            <!-- OVERVIEW CARDS -->
+
+            <section class="overview-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-label">
+                        Protected Devices
+                    </div>
+
+                    <div class="stat-value">
+                        0
+                    </div>
+
+                    <div class="stat-description">
+                        Authorized devices
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-label">
+                        Network Requests
+                    </div>
+
+                    <div class="stat-value">
+                        0
+                    </div>
+
+                    <div class="stat-description">
+                        Requests monitored
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-label">
+                        Security Alerts
+                    </div>
+
+                    <div class="stat-value">
+                        0
+                    </div>
+
+                    <div class="stat-description">
+                        Detected incidents
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-label">
+                        System Status
+                    </div>
+
+                    <div class="stat-value status-text">
+                        Secure
+                    </div>
+
+                    <div class="stat-description">
+                        No active threats
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- NETWORK ACTIVITY -->
+
+            <section class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>Live Network Activity</h3>
+
+                        <p>
+                            Communication observed by NETGUARD
+                        </p>
+
+                    </div>
+
+                    <span class="panel-badge">
+                        LIVE
+                    </span>
+
+                </div>
+
+
+                <div class="activity-list" id="activityList">
+
+                    <div class="empty-state">
+
+                        <div class="empty-icon">
+                            ◌
+                        </div>
+
+                        <h4>Loading network activity...</h4>
+
+                        <p>
+                            NETGUARD is checking the protected server.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOWER GRID -->
+
+            <section class="lower-grid">
+
+
+                <!-- SECURITY ALERTS -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Security Alerts</h3>
+
+                            <p>Recent detections</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="empty-state small">
+
+                        <div class="empty-icon">
+                            ✓
+                        </div>
+
+                        <h4>No alerts</h4>
+
+                        <p>
+                            Your network currently looks normal.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AUTHORIZED DEVICES -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Authorized Devices</h3>
+
+                            <p>Registered network devices</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="empty-state small">
+
+                        <div class="empty-icon">
+                            ◇
+                        </div>
+
+                        <h4>No devices registered</h4>
+
+                        <p>
+                            Authorized devices will appear here.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- DASHBOARD JAVASCRIPT -->
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NETGUARD | Device Test</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(70, 90, 255, 0.20),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(0, 220, 180, 0.15),
+                    transparent 35%
+                ),
+                #07111f;
+
+            color: white;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+        .card {
+
+            width: 100%;
+            max-width: 430px;
+
+            padding: 32px;
+
+            border-radius: 24px;
+
+            background: rgba(255, 255, 255, 0.08);
+
+            border: 1px solid rgba(255, 255, 255, 0.14);
+
+            backdrop-filter: blur(20px);
+
+            box-shadow:
+                0 25px 60px rgba(0, 0, 0, 0.35);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .brand-icon {
+
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.12);
+
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .brand h1 {
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        .brand p {
+            margin-top: 3px;
+            color: #9aa9bd;
+            font-size: 13px;
+        }
+
+        h2 {
+            font-size: 25px;
+            margin-bottom: 8px;
+        }
+
+        .description {
+
+            color: #9aa9bd;
+
+            line-height: 1.6;
+
+            margin-bottom: 25px;
+        }
+
+        label {
+
+            display: block;
+
+            font-size: 13px;
+
+            color: #b7c3d4;
+
+            margin-bottom: 8px;
+        }
+
+        input {
+
+            width: 100%;
+
+            padding: 14px 15px;
+
+            border-radius: 12px;
+
+            border: 1px solid rgba(255, 255, 255, 0.14);
+
+            background: rgba(0, 0, 0, 0.20);
+
+            color: white;
+
+            outline: none;
+
+            margin-bottom: 18px;
+
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: rgba(100, 160, 255, 0.7);
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #2563eb;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .result {
+
+            margin-top: 22px;
+
+            padding: 18px;
+
+            border-radius: 14px;
+
+            background: rgba(255, 255, 255, 0.06);
+
+            display: none;
+        }
+
+        .result.show {
+            display: block;
+        }
+
+        .result-title {
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            margin-bottom: 8px;
+        }
+
+        .result-message {
+
+            color: #aebbd0;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+        .normal {
+            border: 1px solid rgba(34, 197, 94, 0.45);
+        }
+
+        .normal .result-title {
+            color: #4ade80;
+        }
+
+        .warning {
+            border: 1px solid rgba(239, 68, 68, 0.45);
+        }
+
+        .warning .result-title {
+            color: #f87171;
+        }
+
+        .info {
+
+            margin-top: 22px;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            background: rgba(255, 255, 255, 0.04);
+
+            color: #8f9db0;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="card">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                N
+            </div>
+
+            <div>
+
+                <h1>NETGUARD</h1>
+
+                <p>
+                    Network Security Monitor
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <h2>
+            Device Communication Test
+        </h2>
+
+        <p class="description">
+            This device can send a controlled communication
+            request to the NETGUARD protected server.
+        </p>
+
+
+        <label for="deviceToken">
+            Device Token
+        </label>
+
+        <input
+            type="text"
+            id="deviceToken"
+            placeholder="Enter authorized device token"
+        >
+
+
+        <button id="sendButton">
+            Send Network Request
+        </button>
+
+
+        <div
+            class="result"
+            id="resultBox"
+        >
+
+            <div
+                class="result-title"
+                id="resultTitle"
+            ></div>
+
+            <div
+                class="result-message"
+                id="resultMessage"
+            ></div>
+
+        </div>
+
+
+        <div class="info">
+
+            NETGUARD monitors communication with its
+            protected server. Unauthorized devices are
+            detected and blocked.
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const sendButton =
+            document.getElementById("sendButton");
+
+        const deviceToken =
+            document.getElementById("deviceToken");
+
+        const resultBox =
+            document.getElementById("resultBox");
+
+        const resultTitle =
+            document.getElementById("resultTitle");
+
+        const resultMessage =
+            document.getElementById("resultMessage");
+
+
+        sendButton.addEventListener(
+            "click",
+            async () => {
+
+                const token =
+                    deviceToken.value.trim();
+
+
+                sendButton.disabled = true;
+
+                sendButton.textContent =
+                    "Checking communication...";
+
+
+                try {
+
+                    const response =
+                        await fetch(
+                            "/api/device-communication",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+
+                                body: JSON.stringify({
+                                    device_token: token
+                                })
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    resultBox.className =
+                        "result show";
+
+
+                    if (data.success) {
+
+                        resultBox.classList.add(
+                            "normal"
+                        );
+
+                        resultTitle.textContent =
+                            "AUTHORIZED DEVICE";
+
+                        resultMessage.textContent =
+                            "NETGUARD accepted the communication request from this device.";
+
+                    } else {
+
+                        resultBox.classList.add(
+                            "warning"
+                        );
+
+                        resultTitle.textContent =
+                            "UNAUTHORIZED DEVICE";
+
+                        resultMessage.textContent =
+                            "NETGUARD blocked this communication request and recorded a security alert.";
+
+                    }
+
+
+                } catch (error) {
+
+                    resultBox.className =
+                        "result show warning";
+
+                    resultTitle.textContent =
+                        "CONNECTION ERROR";
+
+                    resultMessage.textContent =
+                        "Unable to communicate with the NETGUARD server.";
+
+                    console.error(error);
+
+                }
+
+
+                sendButton.disabled = false;
+
+                sendButton.textContent =
+                    "Send Network Request";
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
